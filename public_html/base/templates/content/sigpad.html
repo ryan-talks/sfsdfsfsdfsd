@@ -1,0 +1,19 @@
+{if $pageID == "subscription_agreement"}
+<link rel="stylesheet" href="base/common/SigPad/css/signature-pad.css">
+<link rel="stylesheet" href="base/common/SigPad/css/style.css">
+
+<div id="signature-pad" class="m-signature-pad hide">
+    <div class="m-signature-pad--body">
+      <canvas></canvas>
+    </div>
+    <div class="m-signature-pad--footer">
+      <div class="description">Sign above</div>
+      <button type="button" class="button clear" data-action="clear">Clear</button>      
+      <button type="button" class="button save" data-action="save">Save</button>
+
+    </div>
+  </div>
+
+  <script src="base/common/SigPad/js/signature_pad.js"></script>
+  <script src="base/common/SigPad/js/app.js"></script>
+  {/if}

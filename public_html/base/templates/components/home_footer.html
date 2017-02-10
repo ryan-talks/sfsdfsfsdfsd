@@ -1,0 +1,19 @@
+<div id="footer">
+    {include file="components/footer_navigation.html" group_id=10 header="Learn More"}
+    {include file="components/footer_navigation.html" group_id=11 header="About"}
+    {include file="components/footer_navigation.html" group_id=12 header="Follow Us"}
+  {hcocore assign=contact method=getContent pageid=contact_footer}
+  {$contact.data}
+  <ul>
+    <li><img id="logo_footer" src="base/common/images/logo.png"></li>
+  </ul>
+</div>
+<div id="privacy_policy_dialog" class="popups modern-skin">{hcocore assign=dialog method=getContent pageid=privacy_policy}<p class="green_header">{$dialog.title}</p>{$dialog.data}</div>
+<div id="terms_of_service_dialog" class="popups modern-skin">{hcocore assign=dialog method=getContent pageid=terms_of_service}<p class="green_header">{$dialog.title}</p>{$dialog.data}</div>
+
+{* Added by Ryan 2.10.2017 *}
+<script src="base/common/js/custom_js.js"></script>
+{* ------- *}
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+{if $pageID != "home" &&  $pageID != "signup"}
+<div class="wrapper"{if $pageID == "education"}id="{$pageID}_wrapper"{/if}> {$content}
+  {if $pageID == "fund_login" && !$is_logged_in}{include file="forms/login.html"}{/if}
+  
+  {if $pageID == "who_are_we" || $pageID == "our_model" || $pageID == "key_features"}
+  {hcocore assign=content_pages method=getPagesByType type_id=2 }
+  {foreach item=pg key=key from=$content_pages|@sortby:"#id"}
+  {if $pg.id|strpos:"$pageID" !== false}
+  {assign var="imgsrc" value="base/common/images/`$config.inner_images_folder``$pg.header`"}
+  {if $pg.id == "our_model_02"}{hcocore assign=model_ro method=getContent pageid=model_rollovers }{/if}
+  <div id="plot_{$pg.id}"{if $imgsrc!="base/common/images/`$config.inner_images_folder`"} style="background-image:url('base/common/images/{$config.inner_images_folder}{$pg.header}')"{/if} class="content_container">
+    <div class="content_wrapper">{$pg.data}
+      {if isset($model_ro)}
+      <div id="model_rollovers">{$model_ro.data}</div>
+      {/if} </div>
+  </div>
+  {/if}
+  {/foreach}
+  {/if}
+  
+  {if $pageID == "education"}
+  {hcocore assign=ds method=getTable table=documents where="cat_id=5 and active=1" order="weight asc"}
+  <ul id="topics_list">
+    {foreach item=d from=$ds}
+    <li class="education_topics" id="{$d.title}"><a href="./{$pageID}#{$d.title|lower|replace:' ':'_'}_listing">{$d.title}</a></li>
+    {/foreach}
+  </ul>
+  <div id="education_items"> {foreach item=d from=$ds}
+    <div id="{$d.title|lower|replace:' ':'_'}_listing">
+      <div id="title" style="background-image:url('base/common/images/{$config.inner_images_folder}{$d.title|lower|replace:' ':'_'}_icon.png')">
+        <p>{$d.title}</p>
+      </div>
+      <div id="content">{$d.content}</div>
+      <p class="read_more"><a class="button" href="./">Read More</a></p>
+      <p class="to_top"><a class="button" href="./{$pageID}#{$pageID}_wrapper">^</a></p>
+    </div>
+    {/foreach} </div>
+  {/if}
+  
+  
+  {if $pageID == "key_features"}  
+  
+  {hcocore assign=ds method=getTable table=documents where="cat_id=18 and active=1" order="weight asc"}
+  
+  <div class="pill" id="the_key_features"><p class="green">Key Features</p></div>
+  
+  <ul class="key_features_list" id="features_group_1">
+    {foreach item=d key=key from=$ds}
+    <li id="{$d.title|lower|replace:' ':'_'}_listing" style="background-image:url('base/common/images/{$config.inner_images_folder}key_features_no_{$key+1}.png')">
+      <div class="title">
+        <p>{$d.title}</p>
+      </div>
+      <div class="content" style="background-image:url('base/common/images/{$config.inner_images_folder}{$d.title|lower|replace:' ':'_'}_icon.png')">{$d.content}</div>
+    </li>
+    {if $key=="1"}</ul><ul class="key_features_list" id="features_group_2">{/if}
+    {/foreach}
+  </ul>
+  {*
+  <div id="key_features_list"> {foreach item=d from=$ds}
+    <div id="{$d.title|lower|replace:' ':'_'}_listing">
+      <div class="title">
+        <p>{$d.title}</p>
+      </div>
+      <div class="content" style="background-image:url('base/common/images/{$config.inner_images_folder}{$d.title|lower|replace:' ':'_'}_icon.png')">{$d.content}</div>
+    </div>
+    {/foreach} </div>
+  *}
+  {/if}
+  
+  {if $pageID == "subscription_agreement"}
+  {include file="forms/subscription_document.html"}
+  {*include file="content/sigpad.html"*}
+  
+<link rel="stylesheet" href="base/common/SigPad/css/signature-pad.css">
+<link rel="stylesheet" href="base/common/SigPad/css/style.css">
+
+<div id="signature-pad" class="m-signature-pad">
+    <button type="button" class="button clear cancel" data-action="clear">X</button> 
+    <div class="m-signature-pad--body">
+      <canvas></canvas>
+    </div>
+    <div class="m-signature-pad--footer">
+      <div class="description">Sign above</div>
+      <button type="button" class="button clear" data-action="clear">Clear</button>      
+      <button type="button" class="button save" data-action="save">Save</button>
+
+    </div>
+  </div>
+
+  <script src="base/common/SigPad/js/signature_pad.js"></script>
+  <script src="base/common/SigPad/js/app.js"></script>
+  {/if} </div>
+  {*if $pageID == "signup"}{include file="forms/signup.html"}{/if*} </div>
+{/if}
+{if $pageID == "home"}
+<div id="div_farm"> {hcocore assign=content_pages method=getPagesByType type_id=2 }
+  {assign var="cnt" value=0}
+  {foreach item=pg key=key from=$content_pages|@sortby:"#id"}
+  {if $pg.id|strpos:"$pageID" !== false}
+  <div id="plot{$cnt}" style="background-image:url(base/common/images/public/{$pg.header})">{$pg.data}</div>
+  {assign var="cnt" value=$cnt+1}
+  {/if}
+  {/foreach} </div>
+{/if} 

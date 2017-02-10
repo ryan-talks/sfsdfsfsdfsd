@@ -1,0 +1,34 @@
+{if $smarty.get.debuggg==true}{debug}{/if}
+{*<script type="text/javascript" language="Javascript" src="./assets/jquery-validate/jquery.validate.js" ></script>*}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script> 
+
+<form method="post" id="subdoc" action="subdoc_process.php" name="subdoc">
+	<input name="flag" value="1" type="hidden">
+	<input name="mode" value="subdoc" type="hidden">
+	{if !empty($user_data.id)}<input name="userID" value="{$user_data.id}" type="hidden">
+{/if}
+{include file="forms/top_sheet.html"}
+{include file="forms/subscription_instructions.html"}
+{include file="forms/subscription_agreement_for_shares.html"}
+{include file="forms/appendix_a.html"}
+{include file="forms/representative_subscriber_only.html"}
+{include file="forms/bvi_investor_notice_acknowledgement.html"}
+{include file="forms/appendix_b.html"}
+{include file="forms/appendix_c.html"}
+{include file="forms/appendix_d.html"}
+{include file="forms/appendix_e.html"}
+{include file="forms/appendix_f.html"}
+{include file="forms/appendix_g.html"}
+{include file="forms/appendix_h.html"}
+{include file="forms/appendix_i.html"}
+{include file="forms/appendix_j.html"}
+{include file="forms/appendix_k.html"}
+{include file="forms/additional_subscription_form.html"}
+{include file="forms/request_for_redemption.html"}
+{include file="forms/privacy_notice.html"}
+
+<div id="subdoc_submit">
+	<input name="accept" value="TEST SUBMIT BUTTON" type="submit">
+</div>
+
+</form>

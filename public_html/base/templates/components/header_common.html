@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<base href="{$config.site_url}" />
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="x-ua-compatible" content="ie=edge"><![endif]-->
+{if $config.seo == true}{if $config.canonical_tags == true}
+{if $config.live == true}<link rel="canonical" href="{$config.site_url}{if $pageID!='home'}{$pageID}{/if}" />{/if}
+{/if}{if $config.seo_titles!=true}<meta name="keywords" content="{$meta_keywords}" />
+{/if}{if $config.meta_description}<meta name="description" content="{$meta_description}" />
+{/if}{/if}
+{if $config.seo == true}<title>{$meta_keywords}</title>{else}<title>{if $is_logged_in}{$config.fund_name}{else}{$config.brokerage_name}{/if}</title>{/if}
+{if $config.favicon == true}{if file_exists("./favicon.ico")}
+<link rel="shortcut icon" type="image/x-icon" href="{$config.site_url}favicon.ico?v2.0" />{/if}{/if}
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/normalize.css">
+<link rel="stylesheet" href="assets/jquery-ui.css">
+<link rel="stylesheet" href="base/common/css/screen{$smarty.get.cssver}.css?HWC.{randnum min=1000 max=2000 decimals=0}">
+{*if $pageID == "subscription_agreement"}<link rel="stylesheet" href="base/common/css/{$pageID}.css?HWC.{randnum min=1000 max=2000 decimals=0}">
+{/if*}
+{if $is_admin}<link rel="stylesheet" type="text/css" href="assets/aql.css" />
+{/if}
+<script src="assets/modernizr-2.8.3.min.js"></script>
+<script src="assets/jquery-3.1.1.js"></script>
+<script>window.jQuery || document.write('<script src="assets/jquery-3.1.1.js"><\/script>')</script>
+<script src="assets/jquery-ui.js"></script>
+<script>window.jQuery || document.write('<script src="assets/jquery-ui.js"><\/script>')</script>
+{if $pageID == 'contact' && $pageID == 'signup' && $pageID == 'fund_login'}<script type="text/javascript" language="Javascript" src="assets/jquery-validate/jquery.validate.js" ></script>
+<script>window.jQuery || document.write('<script src="assets/jquery-validate/jquery.validate.js"><\/script>')</script>{/if}
+{if $is_admin}
+<script type="text/javascript" language="Javascript" src="assets/aql_basic.js"></script>
+<script>window.jQuery || document.write('<script src="assets/aql_basic.js"><\/script>')</script>
+<script type="text/javascript" language="Javascript" src="assets/aql_ga.js"></script>
+<script>window.jQuery || document.write('<script src="assets/aql_ga.js"><\/script>')</script>
+{/if}
+{randnum assign=jquery_randnum min=1000 max=2000 decimals=0}<script src="base/common/js/site_jQuery.js?HWC.{$jquery_randnum}"></script>
+<script>window.jQuery || document.write('<script src="base/common/js/site_jQuery.js?HWC.{$jquery_randnum}"><\/script>')</script>
+{if $pageID == "subscription_agreement"}{randnum assign=jquery_randnum min=1000 max=2000 decimals=0}<script src="base/common/js/rsi_subdoc.js?HWC.{$jquery_randnum}"></script>
+<script>window.jQuery || document.write('<script src="base/common/js/rsi_subdoc.js?HWC.{$jquery_randnum}"><\/script>')</script>
+{/if}
+{if $config.webfonts != ""}<link href="https://fonts.googleapis.com/css?family={$config.webfonts}?v=1.1" rel="stylesheet">{/if}
+</head>
