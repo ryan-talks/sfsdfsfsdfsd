@@ -1,0 +1,195 @@
+{hcocore assign=fund_info method=getFundInfo}
+{hcocore assign=benchmark_names method=getBenchmarkNames}
+{hcocore assign=fund_benchmarks method=getFundBenchmarks}
+{hcocore assign=calc method=getLatestCalculation fund_id=$fund_id return_type='monthly'}
+<br>
+<table cellpadding='0' cellspacing='0' border='0' style='clear:both;'>
+<tr><td>
+	<div tab_group='returns' tab='historic_returns' id='historic_tab' default_tab='1'>Historic Returns</div>
+</td><td>
+	<div tab_group='returns' tab='return_stats' id='return_tab'>Return Statistics</div>
+</td><td>
+	<div tab_group='returns' tab='quant_stats' id='quant_tab'>Quantitative Statistics</div>
+</td></tr>
+</table>
+
+<div id="historic_returns" style='{*display:none;&*}border:0px solid #CCC;background-color:#FFF;z-index:+999;'>
+<table class='perf' style='width:100%;background: #cad0d2' cellpadding="8px;" cellspacing="1px">
+	<tr style='background-color: #cad0d2; color:#30424E;'>
+		<th style='width:60px;'>Year</th>
+		{foreach item=month from=$months}
+		<th>{$month|substr:0:3} </th>
+		{/foreach}
+		<th>YTD</th>
+	</tr>
+	{foreach item=return_year from=$returns key=return_year_key name=return_years}
+		<tr style='background-color:{cycle values="#ffffff,#f2f2f2"};text-align:center;'>
+			<th style='font-weight:lighter;color:#30424E;'>{$return_year_key}
+				{assign var=year_flag value=''}
+				{if $smarty.foreach.return_years.iteration == 1}
+					{assign var=year_flag value='first'}
+				{elseif $smarty.foreach.return_years.iteration == $returns|@count}
+					{assign var=year_flag value='last'}
+				{/if}
+			</th>
+			{foreach item=month from=$months}
+						{assign var=found value=false}
+						{foreach item=return_month from=$return_year key=return_month_key}
+							{if $month eq $return_month_key}
+								{assign var=found value=true}
+								{assign var=return_month_value value=$return_month.value}
+							{/if}
+						{/foreach}								
+						{if $found == true}
+								<td nowrap>{$return_month_value|2point:'%'|highlight_negatives} </td>
+						{else}
+							<td nowrap>-</td>
+						{/if}
+			{/foreach}
+			<td>{$calc[$fund_id].year_data[$return_year_key].compounded_return|2point:'%'|highlight_negatives}</td>
+		</tr>
+	{/foreach}
+</table>
+</div>
+<div id='return_stats' style='z-index:+999;'>
+	<table class='perf' style='width:100%;background: #cad0d2' cellpadding="8px;" cellspacing="1px">
+	<tr style='background-color: #cad0d2; color:#30424E;'>
+		<th>&nbsp;</th>
+		<th>{$fund_info.name}</th>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<th style='font-weight:lighter;color:#30424E'>
+				{$benchmark_names[$benchmark]}
+			</th>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#FFF;'>
+		<td style='font-weight:lighter;color:#30424E'>Cumulative Return</td>
+		<td align='center'>{$calc[$fund_id].cumulative_return|2point}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].cumulative_return|2point}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#F2F2F2;'>
+		<td style='font-weight:lighter;color:#30424E'>1 Year Return</td>
+		<td align='center'>{if $calc[$fund_id].count > 11}{$calc[$fund_id].previous_months_compounded_return.12|2point}{else}-{/if}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{if $calc[$fund_id].count > 11}{$calc[$fund_id].benchmarks_data[$benchmark].previous_months_data.12|2point}{else}-{/if}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#FFF;'>
+		<td style='font-weight:lighter;color:#30424E'>3 Year Return:</td>
+		<td align='center'>{if $calc[$fund_id].count > 35}{$calc[$fund_id].previous_months_compounded_return.36|2point}{else}-{/if}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{if $calc[$fund_id].count > 35}{$calc[$fund_id].benchmarks_data[$benchmark].previous_months_data.36|2point}{else}-{/if}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#F2F2F2;'>
+		<td style='font-weight:lighter;color:#30424E'>5 Year Return:</td>
+		<td align='center'>{if $calc[$fund_id].count > 59}{$calc[$fund_id].previous_months_compounded_return.60|2point}{else}-{/if}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{if $calc[$fund_id].count > 59}{$calc[$fund_id].benchmarks_data[$benchmark].previous_months_data.60|2point}{else}-{/if}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#FFF;'>
+		<td style='font-weight:lighter;color:#30424E'>Standard Deviation (Annual):</td>
+		<td align='center'>{$calc[$fund_id].ann_std_dev|2point}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].ann_std_dev|2point}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#F2F2F2;'>
+		<td style='font-weight:lighter;color:#30424E'>Standard Deviation (Monthly):</td>
+		<td align='center'>{$calc[$fund_id].std_dev|2point}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].std_dev|2point}</td>
+		{/foreach}
+	</tr>
+	<tr style='background-color:#FFF;'>
+		<td style='font-weight:lighter;color:#30424E'>Downside Deviation:</td>
+		<td align='center'>{$calc[$fund_id].downside_deviation_10|2point}</td>
+		{foreach from=$fund_benchmarks item=benchmark}
+			<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].downside_deviation_10|2point}</td>
+		{/foreach}
+	</tr></table>
+</div>
+<div id='quant_stats' style='border:0px solid #CCC;z-index:+999;'>
+		<table class='perf' style='width:100%;background: #cad0d2' cellpadding="8px;" cellspacing="1px">
+        	<tr style='background-color: #cad0d2; color:#30424E;'>
+				<td>&nbsp;</td>
+				<td>{$fund_info.name}</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+				<td>{$benchmark_names[$benchmark]}</td>
+				{/foreach}
+			</tr>
+			<tbody>
+			<tr style="background-color:#FFFFFF;">
+				<td style='font-weight:lighter;color:#30424E'>Sharpe Ratio (Annualized):</td>
+				<td align='center'>{$calc[$fund_id].ann_sharpe_5|2point:''}</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].ann_sharpe_5|2point:''}</td>
+				{/foreach}
+			</tr>
+			<tr style="background-color:#f2f2f2;">
+				<td style='font-weight:lighter;color:#30424E'>Sortino:</td>
+				<td align='center'>{$calc[$fund_id].ann_sortino_5|2point:''}</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].ann_sortino_5|2point:''}</td>
+				{/foreach}
+			</tr>
+        	</tbody>
+		</table>
+        <p>&nbsp;</p>
+		<table class='perf' style='width:100%;background: #cad0d2' cellpadding="8px;" cellspacing="1px">
+        	<tbody>
+			<tr style='background-color: #cad0d2; color:#30424E;'>
+				<td colspan="2">{$fund_info.name} vs. </td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<th style='font-weight:lighter;'>
+						{$benchmark_names[$benchmark]}
+					</th>
+				{/foreach}
+			</tr>
+			<tr style="background-color:#FFFFFF;">
+				<td colspan="2" style='font-weight:lighter;color:#30424E'>Beta:</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].beta|2point:''}</td>
+				{/foreach}
+			</tr>
+			<tr style="background-color:#f2f2f2;">
+				<td colspan="2" style='font-weight:lighter;color:#30424E'>Alpha:</b></div></td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].alpha|2point:''}</td>
+				{/foreach}
+			</tr>
+			<tr style="background-color:#FFFFFF;">
+				<td colspan="2" style='font-weight:lighter; color:#30424E;'>R:</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].R|2point:''}</td>
+				{/foreach}
+			</tr>
+			<tr style="background-color:#f2f2f2;">
+				<td colspan="2" style='font-weight:lighter;color:#30424E'>R Squared:</td>
+				{foreach from=$fund_benchmarks item=benchmark}
+					<td align='center'>{$calc[$fund_id].benchmarks_data[$benchmark].R2|2point:''}</td>
+				{/foreach}
+			</tr>
+			</tbody>
+		</table>
+</div>
+<br />
+<!--[if IE ]>
+	<link rel="stylesheet"  type="text/css" href="{$config.site_url}base/common/css/ie.css" />
+<![endif]-->
+<!--[if IE 7 ]>
+	<link rel="stylesheet"  type="text/css" href="{$config.site_url}base/common/css/ie7.css" />
+<![endif]-->
+<br />
+<div id="nav_growth">
+	<table class='perf'>
+		<td>
+			<img src="{$config.site_url}graphs/grapher_new.php?{$fund_info.graph_details}&fund_id={$fund_id}&fund_name={$fund_info.name}&width=1110" style='padding-bottom:5px;' />
+            {hcocore assign=nav_disclaimer method=getContent pageid=$attached_content}{$nav_disclaimer.data}
+		</td>
+	</table>
+    </div>
+    <img id="calcPoweredBy" src="{$config.site_url}images/universal/poweredbyCalc.png" />

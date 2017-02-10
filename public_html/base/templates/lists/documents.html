@@ -1,0 +1,85 @@
+{if !$smarty.request.catid}
+	{assign var=catid value=$main_id}
+{else}
+	{assign var=catid value=$smarty.request.catid}
+{/if}
+
+{if $doc_order}
+{assign var=order value=$doc_order}
+{else}
+{assign var=order value="insert_date desc"}
+
+{/if}
+
+
+{hcocore assign=dc method=getTable table=document_categories where="parent_id=$catid or id=$catid" order="weight asc" list=1}
+{assign var=per_page value=1000}
+{assign var=fid value=$smarty.request.fund_id|default:999}
+{assign var=pg value=$smarty.request.pg|default:1}
+
+<div id='{$pageID}_list_1'>
+	{foreach item=c from=$dc}
+		{assign var=cid value=$c.id}
+		{if $c.parent_id}
+			{assign var=parent_id value=$c.parent_id}
+		{else}
+			{assign var=parent_id value=$c.id}
+		{/if}
+        
+		{assign var=order value="weight asc, insert_date desc"}
+		{hcocore assign=ds method=getTable table=documents where="cat_id=$cid and active=1 and fund_id = $fid" order="$order" limit="$per_page" page=$pg list=1}
+		{hcocore assign=pagination method=getPagination table=documents where="cat_id=$cid and active=1 and fund_id = $fid" limit="$per_page" page=$pg}
+		{if count($ds)}
+				<div>
+					{if count($dc) > 2}
+						<br><h2><span>{$c.title} </span></h2><br>
+					{/if}
+				</div>
+			<table width="100%">
+				{foreach item=d from=$ds name=ds}
+					<tr>
+						<td>
+                        	{if $pageID == "letters"}
+                            	<a href='{$config.site_url}letters&id={$d.id}'>{$d.title}</a>
+                            {else}
+                                {if $d.url}
+                            	    <a href="{$d.url}">{$d.title}</a>
+                                {else}
+                                	{$d.title}
+                                {/if}
+							{/if}
+						</td>
+						<td class='list_1_date'>
+							{$d.insert_date|date_format:'%B %e, %Y'}
+						</td>
+						<td class='list_1_download'>
+							{if $d.download} <a href='{$config.site_url}downloads/{$d.download}'>Download</a>{/if}
+						</td>
+					</tr>
+				{/foreach}
+			</table>
+			{if $pagination.pages>1}
+				<div class='paging_links'>
+					<div id='prev_page'>
+						{if $pg != 1}
+							<a href='{$config.site_url}letters&catid={$cid}&pg={$pagination.prev}'>Previous Page</a>
+						{else}
+							Previous Page
+						{/if}
+					</div>
+					<div id='page_count'>
+						{$pg} of {$pagination.pages}
+					</div>
+					<div id='next_page'>
+						{if $pg != $pagination.pages}
+							<a href='{$config.site_url}letters&catid={$cid}&pg={$pagination.next}'>Next Page</a>
+						{else}
+							Next Page
+						{/if}
+					</div>
+				</div>
+			{/if}
+		<br clear='all' />
+		{/if}
+	{/foreach}
+</div>

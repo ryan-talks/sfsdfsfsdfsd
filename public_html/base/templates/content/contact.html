@@ -1,0 +1,34 @@
+{assign var="imgsrc" value="base/common/images/`$config.inner_images_folder``$header_image`"}
+<div class="wrapper"{if $imgsrc!="base/common/images/`$config.inner_images_folder`"} style="background-image:url('{$imgsrc}')"{/if}>
+<div class="contact centered">
+
+
+{if $config.contact_form}
+	{if $mailsent}
+	{hcocore assign=contact_mailsent method=getContent pageid=contact_mailsent}
+	{$contact_mailsent.data}
+	{else}
+    {$content}
+{*literal}
+<script type="text/javascript">
+// only for demo purposes
+jQuery(document).ready(function() {
+	jQuery("#contact_form").validate();
+});
+</script>
+{/literal*}
+<form id="contact_form" method="post" action="{$config.site_url}contact" validate='true'>
+  <input type="hidden" name="mode" value="send"><input type="hidden" name="active_user" value="{if $user_data.firstname}1{/if}">
+	<ul>
+        <li><input type='text' name='data[firstname]' value='{$user_data.firstname}' class='required' placeholder="First Name"	/></li>
+        <li><input type='text' name='data[lastname]' value='{$user_data.lastname}' class='required' placeholder="Last Name" /></li>
+        <li><input type='text' name='data[email]' value='{$user_data.email}' class='required' email="true" placeholder="Email" /></li>
+        <li><input type='text' name='data[email_subject]' value='' class='required' placeholder="Subject" /></li>
+        <li><textarea name="data[description]" rows="4" cols="50" class='required' placeholder="Type Message"></textarea></li>
+	</ul>
+    <input type='submit' value='Submit' />
+</form>
+{/if}{/if}
+
+</div>
+</div>

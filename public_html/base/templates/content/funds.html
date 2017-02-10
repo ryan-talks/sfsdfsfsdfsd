@@ -1,0 +1,46 @@
+{hcocore assign=allfunds method=getFunds active=1}
+{foreach item=f from=$allfunds}
+	{hcocore assign=calc method=getLatestCalculation fund_id=$f.id return_type='monthly'}
+	<div class="box">
+		<div style="width: 50%; float: left;">
+		<h2><a href='{$config.site_url}performance&fund_id={$f.id}'>{$f.name}</a></h2>
+		{$f.description}<p />
+		</div>
+		<br clear="all" />
+		<p>
+			<span class="view-more">
+				<a href='{$config.site_url}performance&fund_id={$f.id}'>Performance</a>
+			</span>
+			<span class="view-more">
+				<a href='{$config.site_url}structure&fund_id={$f.id}'>Structure</a>
+			</span>
+			<span class="view-more">
+				<a href='{$config.site_url}letters&fund_id={$f.id}'>Communications</a>
+			</span>
+			<span class="view-more">
+				<a href='{$config.site_url}legal&fund_id={$f.id}'>Documents</a>
+			</span>
+		</p>
+	</div>
+		<br clear="all" />
+{/foreach}
+
+{hcocore assign=dp method=getContent pageid='mirf' fund_id='999'}
+	<div class="box">
+		<div style="width: 50%; float: left;">
+		<h2><a href='{$config.site_url}mirf'>{$dp.title}</a></h2>
+		{$dp.data}<p />
+		</div>
+		<br clear="all" />
+	</div>
+		<br clear="all" />
+
+{hcocore assign=dp method=getContent pageid='mirc' fund_id='999'}
+	<div class="box">
+		<div style="width: 50%; float: left;">
+		<h2><a href='{$config.site_url}mirc'>{$dp.title}</a></h2>
+		{$dp.data}<p />
+		</div>
+		<br clear="all" />
+	</div>
+		<br clear="all" />

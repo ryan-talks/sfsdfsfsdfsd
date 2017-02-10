@@ -1,0 +1,4 @@
+{if $super_admin}<div id="template_list" style="display:none;padding-left:20px;">{hcocore assign=template_dir method=printTemplateDir }{$template_dir}</div>{if $save_template_status}{literal}
+<script><!--
+alert("{/literal}{$save_template_status}{literal}");
+--></script>{/literal}{/if}{/if}

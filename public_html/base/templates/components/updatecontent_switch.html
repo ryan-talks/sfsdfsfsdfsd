@@ -1,0 +1,66 @@
+{if $is_admin == true}	<div style='position:fixed;text-align:left; top:0px;right:0px;z-index:3000;width:196px;font-size:12px;overflow:hidden;' id="admin_menu">
+		<div style="width: 180px;">
+			<table cellpadding='0' cellspacing='0' border='0'>
+			<tr><td>
+				<img src='{$config.image_url}universal/menu_close.gif' id='menu_link' />
+			</td>
+			<td>
+				<table border="0" width="180" cellspacing="2" cellpadding="3" class='grider' style='float: left; border: 1px solid #cccccc; background-color: #999999;'>
+				<thead>
+					<th style="color: #003366; text-align: left; padding-left: 5px; background-color: #cccccc;">
+						Admin Quick Links
+					</th>
+				</thead>
+				<tr>
+					<td style='background-color:#ffffcc;'>
+						<img src='{$config.image_url}/universal/application_home.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/index.php?main_nav_id=home&sub_nav_id=admin_home">Admin Panel Home</a>
+					</td>
+				</tr>
+				<tr>
+					<td style='background-color:#FFF;'>
+						<img src='{$config.image_url}/universal/page_edit_top.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/{$adminpage}&main_nav_id=content&sub_nav_id=pages&fund_id={$fund_id}">Edit Title/Text</a><br />
+						{if $super_admin}
+	
+						<img src='{$config.image_url}/universal/tab_edit.png' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/navigation_group.php?main_nav_id=content&sub_nav_id=navigation">Edit Navigations</a><br />
+
+						{/if}
+					</td>
+				</tr>
+				<tr>
+					<td style='background-color:#FFF;'>
+							<img src='{$config.image_url}/universal/fund_returns.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/returns.php?main_nav_id=returns&sub_nav_id=funds">Returns</a><br />
+							<img src='{$config.image_url}/universal/news_list.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/documents.php?cat_id=2&main_nav_id=documents&sub_nav_id=letters">Letters & Articles</a><br />
+							<img src='{$config.image_url}/universal/literature_list.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/documents.php?cat_id=1&main_nav_id=documents&sub_nav_id=marketing">Marketing Materials</a><br />
+							<img src='{$config.image_url}/universal/text_list_bullets.png' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/fund_structure.php?main_nav_id=returns&sub_nav_id=funds">Fund Structure</a>
+					</td>
+				</tr>
+				<tr>
+					<td style='background-color:#FFF;'>
+							<img src='{$config.image_url}/universal/user_list.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/user_list.php?main_nav_id=users&sub_nav_id=user">Users & Tracking</a><br />
+							<img src='{$config.image_url}/universal/management_list.gif' class='ikon' /> <a class='ad_nav' href="{$config.site_url}admin/management_list.php?main_nav_id=management&sub_nav_id=manager">Management List</a>
+					</td>
+				</tr>
+				{if $super_admin}
+				<tr >
+					<td style='background-color:#ffffcc;'>
+
+						<img src='{$config.image_url}/universal/bin_empty.png' class='ikon' /> <a class='ad_nav' href="{$config.site_url}{$path}&clear_cache">Clear Cache</a><br />
+						<img src='{$config.image_url}/universal/application_edit.png' class='ikon' /> <a class='ad_nav' href="#template_list" rel="facebox">Edit Template</a><br />
+						<img src='{$config.image_url}/universal/folder_delete.png' class='ikon' /> <a class='ad_nav' href="#permission_check" rel="facebox">Check Permissions</a><br />
+
+					
+
+					</td>
+				</tr>
+				{/if}
+				<tr>
+					<td style='background-color:#EEE; text-align: right;'>
+						<a class='ad_nav' href='{$config.site_url}logout'>Logout</a> <img src='{$config.image_url}/universal/logout.gif' class='ikon' />
+					</td>
+				</tr>
+				</table>
+			</td></tr>
+			</table>
+		</div>
+	</div>{/if}
+{include file="components/template_dir.html"}

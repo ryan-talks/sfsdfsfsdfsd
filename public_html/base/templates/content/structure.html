@@ -1,0 +1,25 @@
+<br>
+{include file="content/sub_fund_nav.html"}
+<div id="performance_wrapper">
+
+{if $structure != "null"}
+	{hcocore assign=data_groups method=getFundDataGroups}
+
+	{foreach item=group from=$data_groups}
+		{hcocore assign=fund_data method=getFundData group_id=$group.data_group_id}
+		{if count($fund_data)}
+			<h2>{$group.group_name}</h2>
+			<table width="100%" class='list-table'>
+			{foreach item=row from=$fund_data}
+				{if $row.value !="" } <tr style="background-color:{cycle values="#FFF,#F2F2F2"}">
+					<th width="30%" align='left'>{$row.text}</th>
+					<td>{$row.value}</td>
+				</tr>
+				{/if}
+			{/foreach}
+			</table>
+
+		{/if}
+	{/foreach}
+{/if}
+</div>

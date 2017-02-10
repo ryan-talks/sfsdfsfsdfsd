@@ -1,0 +1,24 @@
+<div class="login centered">
+<p>Need an account? <a href="signup">SIGN UP</a></p>
+	<form id="login_form" name="login_form" action="login" method='post'>
+    <ul>
+    <li id="user"><input id="username" name="username" placeholder="Email Address" value="" title="username" type="email"/></li>
+	<li id="pw"><input id="password" name="password" placeholder="Password" value="" title="password"  type="password"/></li>
+    </ul>
+    <input value="login" type="button" onClick="document.login_form.submit()">
+    
+	</form>
+    <p>Having trouble to login? <a href="./contact">Contact Us</a></p>
+</div>        
+{literal}
+<script>
+function enterPressed(evn) {
+	if (window.event && window.event.keyCode == 13) {
+		document.login_form.submit();
+	} else if (evn && evn.keyCode == 13) {
+		document.login_form.submit();
+	}
+}
+document.onkeypress = enterPressed;
+</script>
+{/literal}

@@ -1,0 +1,9 @@
+{include file="components/main_header.html"}
+ {include file="components/main_template.html"}
+{if $smarty.request.t}
+	{assign var=t value=$smarty.request.t}
+	{include file="forms/$t.html"}
+{else}
+	{include file="forms/signup.html"}
+{/if}
+{include file="components/main_footer.html"}

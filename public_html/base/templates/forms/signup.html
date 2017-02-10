@@ -1,0 +1,68 @@
+<div class="wrapper">
+  <div class="signup centered"> {*literal}<script type="text/javascript">
+jQuery(document).ready(function(){
+	jQuery("#signup").validate();
+});
+</script>{/literal*}
+    <p class="white"><strong>Let's Get Started</strong></p>
+    <form method='post' id='signup' action='form_submitter' name='signup' >
+      <input type='hidden' name='flag' value='1' />
+      <input type='hidden' name='mode' value='signup' />
+      <ul>
+        <li id="fname"{* class="inline"*}>
+          <input name="data[firstname]" value="" required type="text" placeholder="First Name">
+        </li>
+        <li id="lname"{* class="inline"*}>
+          <input name="data[lastname]" value="" required type="text" placeholder="Last Name">
+        </li>
+        <li id="user">
+          <input name="data[username]" value="" required email="true" type="text" placeholder="Email Address">
+        </li>
+        <li id="pw">
+          <input id="password" value="" name="data[password]" required type="password" placeholder="Password">
+        </li>
+        <li id="pw2">
+          <input id="password_repeat" value="" name="data[password_repeat]" required equalto="#password" type="password" placeholder="Confirm Password">
+        </li>
+      </ul>
+      <div class="radio-toolbar">
+		{hcocore assign=accredited_investor_explanation method=getContent pageid=accredited_investor_explanation}{$accredited_investor_explanation.data}
+        
+        <div class="checkbox_item">
+          <input value="A bank, insurance company, registered investment company, business development company, or small business investment company" id="dataaccredited_0" name="data[accredited][]" minlength="1" alt="accredited" type="radio">
+          <label for="dataaccredited_0">A bank, insurance company, registered investment company, business development company, or small business investment company</label></div>
+        
+        <div class="checkbox_item">
+          <input value="An employee benefit plan, within the meaning of the Employee Retirement Income Security Act, if a bank, insurance company, or registered investment adviser makes the investment decisions, or if the plan has total assets in excess of $5 million." id="dataaccredited_1" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_1">An employee benefit plan, within the meaning of the Employee Retirement Income Security Act, if a bank, insurance company, or registered investment adviser makes the investment decisions, or if the plan has total assets in excess of $5 million.</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A charitable organization, corporation, or partnership with assets exceeding $5 million" id="dataaccredited_2" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_2">A charitable organization, corporation, or partnership with assets exceeding $5 million</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A director, executive officer, or general partner of the company selling the securities" id="dataaccredited_3" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_3">A director, executive officer, or general partner of the company selling the securities</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A business in which all the equity owners are accredited investors" id="dataaccredited_4" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_4">A business in which all the equity owners are accredited investors</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A natural person who has individual net worth, or joint net worth with the person's spouse, that exceeds $1 million at the time of the purchase, or has assets under management of $1 million or above, excluding the value of their primary residence" id="dataaccredited_5" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_5">A natural person who has individual net worth, or joint net worth with the person's spouse, that exceeds $1 million at the time of the purchase, or has assets under management of $1 million or above, excluding the value of their primary residence</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A natural person with income exceeding $200,000 in each of the two most recent years or joint income with a spouse exceeding $300,000 for those years and a reasonable expectation of the same income level in the current year" id="dataaccredited_6" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_6">A natural person with income exceeding $200,000 in each of the two most recent years or joint income with a spouse exceeding $300,000 for those years and a reasonable expectation of the same income level in the current year</label></div>
+        
+        <div class="checkbox_item">
+          <input value="A trust with assets in excess of $5 million, not formed to acquire the securities offered, whose purchases a sophisticated person makes." id="dataaccredited_7" name="data[accredited][]" alt="accredited" type="radio">
+          <label for="dataaccredited_7">A trust with assets in excess of $5 million, not formed to acquire the securities offered, whose purchases a sophisticated person makes.</label></div>
+          
+      </div>
+      <input type='submit' value='SIGN UP' name='accept' />
+    </form>
+    <p>Already have an account? <a href="fund_login">LOGIN</a></p>
+  </div>
+</div>

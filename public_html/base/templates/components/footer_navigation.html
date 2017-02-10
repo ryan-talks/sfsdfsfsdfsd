@@ -1,0 +1,11 @@
+{hcocore assign=nav method=getParentNavigationByGroupId group_id=$group_id}
+{if $position=="main_nav"}<ul id="jsddm">{else}<ul>{/if}
+	<li>{$header}</li>
+{counter start=0 assign="cntnav"}
+{foreach from=$nav item=n}
+	{if count($nav)}
+	{counter}
+    <li><a{if $n.path=="terms_of_service" || $n.path=="privacy_policy"} id="{$n.path}" class="pu_link"{/if} href="{$config.site_url}{$n.path}"{if $pageID == $n.path} class="selected"{/if}{if strpos($n.path, "&url=") !== false} target="_blank"{/if}>{$n.title}</a></li>
+	{/if}
+{/foreach}
+</ul>

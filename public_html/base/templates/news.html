@@ -1,0 +1,27 @@
+
+<div id="performance_wrapper">
+
+{if !$smarty.request.id}
+
+	{if !$article}
+
+		{if $smarty.request.catid}
+
+			{hcocore assign=cat method=getTable table='document_categories' where="id = '31'"}
+
+			{assign var=label value=$cat.title}
+
+		{/if}
+
+
+	{/if}
+
+	{include file="lists/documents.html" main_id=2}
+
+{else}
+
+
+	{include file="lists/document_view.html"}
+
+{/if}
+</div>

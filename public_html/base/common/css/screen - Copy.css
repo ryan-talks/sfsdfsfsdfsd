@@ -1,0 +1,659 @@
+@import url(reset.css); /* RESET CSS */
+
+
+/* 1.BODY
+---------------------------------------------------------------------- */
+*{line-height:normal;}
+html,
+body { height: 100%; margin: 0; padding: 0; background:url(none) repeat-y scroll center top #404040;}
+body { color:#404040; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+
+/* 2.DEFAULT STYLING
+---------------------------------------------------------------------- */
+.hide{display:none;}
+p{ margin-bottom:18px; color:#333;}
+a{ color:#384A5C; }
+ul { list-style:inherit; }
+/*ul li { margin-left:25px; }*/
+
+strong { font-weight:bold; }
+em { font-style:italic; }
+
+table { border-top:0px solid #ccc; border-spacing:normal; color:#000 !important; }
+table a {  }
+table a:hover,
+table a:focus { color:#7BB800; text-decoration:none; }
+table td { border-bottom:1px solid #ccc; background:transparent; padding:5px 0; vertical-align:top; }
+table th { padding:5px 0;}
+table tr.alt td { background:#000; }
+
+
+	/* 2.1 ADMIN MENU
+	---------------------------------------------------------------------- */
+	div#admin_menu{ font-family:Arial, Helvetica, sans-serif; }
+	div#admin_menu a:hover, a:focus{ color:#990000; }
+	div#admin_menu table td{ border:none; background:transparent; }
+	
+	/* 2.2 BASE REVISITS
+	---------------------------------------------------------------------- */	
+	div.legal_selection{
+		background:transparent;
+		border:thin rgba(255,255,255,.25) solid;
+		color:#333333;
+	}
+	#historic_tab, #return_tab, #quant_tab {
+		background-color: #FFFFFF !important;
+		/*border-left: 1px solid #BABA98;*/
+		margin-bottom: 10px;
+		color:#384A5C;
+	}
+	/*	Sign Up form	*/
+	#signup_pg .required_field {color:#cc0000;}
+	#signup_pg div.form_group .form_single_width {height:22px!important;}
+	#signup_pg div.form_group .form_double_width {color:#000;}
+	#signup_pg #disclaimer_plain{
+		width:97%px; 
+		height: 240px; 
+		overflow: auto;
+		border: 1px solid #CCC;
+		float:left;
+	}
+	#signup_pg #disclaimer_check{
+		background:transparent!important;
+		border:none!important;
+		float:left;
+		margin-left:10px;
+		margin-top:12px;
+		padding:3px;
+	}
+	#signup_pg #disclaimer_submit{
+		float:left;
+		margin-top:12px;
+	}
+	#signup_pg #disclaimer_submit input[type="submit"]{
+		width:120px; height:27px;
+	}
+	#signup_pg legend{
+		padding:10px 150px;
+	}
+	
+	.active {color:#990000!important;}
+	.tab_selected{
+	}
+	.sub_selected{
+    background: none repeat scroll 0 0 transparent;
+		color: #999999 !important;
+		left: 40px;
+		position: relative;
+	}
+
+/* 3.HEADINGS
+---------------------------------------------------------------------- */
+h1,h2,h3,h4,h5 { font-weight:normal; line-height:normal; color:#306090; font-family:'Cinzel', serif; }
+
+h1 { font-size:22pt; }
+h2 { font-size:18pt; margin-bottom:16px; }
+h3 { font-size:16pt; margin-bottom:13px; }
+h4 { font-size:14pt; margin-bottom:10px; }
+h5 { font-size:10pt; }
+
+.h4{ font-size:10pt; }
+
+/* 4.LINKS
+---------------------------------------------------------------------- */
+a { color:#7BB800; text-decoration:none; }
+a:hover, a:focus { color:#7BB800; }
+
+/* 5.IMAGES
+---------------------------------------------------------------------- */
+.polaroid { border:5px solid #fff; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; -webkit-box-shadow:1px 1px 5px #999; -moz-box-shadow:1px 1px 5px #999; }
+
+div#admin_menu img{ display:inline; }
+div.banner{
+	max-height:325px;
+	height:325px;
+}
+
+/* 6.LAYOUT
+---------------------------------------------------------------------- */
+	/* 6.1 COMMON WRAPPER ELEMENT ------------ */
+	div.wrapper{
+		height:223px;
+		margin:0 auto;
+		width:1214px;
+		min-width:1214px;
+		background:url('../images/header_gradient') no-repeat 0 0 #FFF;
+/*		border: 7px solid #F9F9F9;
+		border-top:1px solid #a5a6a8;
+		border-color:#ffffff;
+*/
+		-moz-box-shadow: 0px 0px 0px #000;
+		-webkit-box-shadow: 0px 0px 0px #000;
+		box-shadow: 0px 0px 0px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=180, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=0, Direction=180, Color='#000000');
+		padding:0;
+
+	}
+	
+	/* 6.2 HEAD ROW ------------ */
+	div#head_row, div#content_row, div#footer_row{
+		position:relative;
+		text-align:left;
+		width:100%;
+	}
+	div#head_row{
+		height: 166px;
+		padding: 56px 0 0;
+		position: relative;
+	}
+	div#head_row.wrapper{
+		height:130px;
+	}
+	div#head_row .banner{
+		background:url("../images/banners/home.jpg") no-repeat scroll center 19px transparent;
+	}
+	
+	/* 6.3 CONTENT ROW ------------ */
+	div#content_row{
+		background:url("../images/side_dropshadows.png") repeat-y scroll center top transparent;
+		min-height:300px;
+	}	
+	div#content_row .wrapper {		
+		height:100%;
+		position:relative;
+	}
+	div#content_row .banner{
+		background:url("../images/banners/home.jpg") no-repeat scroll 0 0 #FFFFFF;
+		min-height:202px;
+		height:202px;
+		position:relative;
+	}
+	div#content_row .banner p#splash{
+		background:url("../images/splash_tag.png") scroll no-repeat 0 0 transparent;
+		bottom:28px;
+		position:absolute;
+		right:0;
+		overflow:visible;
+		width:618px;
+		height:87px;
+		text-indent:-5000px;
+	}
+	div#content_row p{
+	}
+	
+		/* 6.3.1 CONTENT ROW, NAVIGATION COLUMN ------------ */
+		div#content_row #nav_col{
+			width:237px;
+			float:left;
+			background-color:#e1ebf7;
+			height:100%;
+		}
+		
+		/* 6.3.2 CONTENT ROW, CONTENT COLUMN ------------ */
+		div#content_row #content_col{
+			float:left;
+			max-width:1200px;
+			width:100%;
+			padding:0 0 36px 0;
+			min-height:400px;
+			background:url(none) no-repeat scroll 700px bottom #FFFFFF;
+		}
+			
+		#content_col #left_col{
+			padding:35px 44px;
+		}
+		#content_col #right_col{
+			display:none;
+		}
+		#content_col #left_col, #content_col #right_col{
+			float:left;	
+			width:93%;
+		}
+		#content_col #left_col h1{
+			margin:0 0 15px;
+		}
+		#content_col #left_col p {
+			line-height:1.3em;
+			text-align:justify;
+		}	
+
+	
+	/* 6.4 FOOTER ROW ------------ */
+	div#footer_row {
+		clear: left;
+		height: 53px;
+	}
+
+
+/* 7.BRANDING/MASTHEAD
+---------------------------------------------------------------------- */
+
+img#banner{
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:auto;
+	margin:0;
+	padding:0;
+}
+
+img#logo { 
+	position:relative;
+	top:12px;
+	left:60px;
+	z-index: 10;
+}
+#header_watermark{
+    left: 700px;
+    position: relative;
+    top: -117px;		
+}
+
+/* 8.NAVIGATION
+---------------------------------------------------------------------- */
+
+div#main_nav {
+	display:inline;
+	width:auto;
+	font-size:13px;	
+}
+div#main_nav ul{
+	background:url(none) repeat scroll 0 0 #000;
+	list-style: none inside none;
+	text-align:right;
+	height:40px;
+	padding-right:25px;
+	margin:0;
+}
+div#main_nav ul li { 
+    color: #0F0B1E;
+    display: inline;
+    height: 40px;
+    min-height: 40px;
+    padding: 13px 0 13px;
+    position: relative;
+	top:12px;
+}
+div#main_nav ul li a{ 
+    color: #fff;
+    display: inline;
+    height: 40px;
+    min-height: 40px;
+    padding: 9px 10px 10px;
+    position: relative;
+	font-size:14px;
+	text-transform:uppercase;
+}
+div#main_nav ul li:hover{
+	cursor:default;
+	background:url(none) repeat scroll 0 0 transparent;
+}
+div#main_nav ul li a:hover, 
+div#main_nav ul li a:focus{ 
+    padding: 9px 10px 10px;
+	height:40px!important;
+    color: #7BB800 !important;
+}
+#jsddm .submenu{
+	position: absolute;
+	visibility: hidden;
+	margin: 0!important;
+	padding: 10px 0;
+	background: url("../images/subnav_bkgnd.png") repeat scroll 0 0 transparent;
+	top: 16px;
+	left:0;
+}
+#jsddm .submenu li{}
+#jsddm .submenu li a{
+    color: #FFFFFF !important;
+    display: block;
+    margin: 0;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 8px 15px !important;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    width: auto;
+}
+#jsddm .submenu li a:hover{
+	background: #306090;
+	color: #FFF;
+}
+.subnav_bullet{
+	background: url("../images/blue-arrow-dn.gif") no-repeat scroll 0 center transparent;
+	margin-left:15px;
+}
+
+hr.mmenu{
+	border:#333 6px solid;
+	width:96%;
+}
+ul#sec_nav {
+	float:right;
+	top:-40px;
+	position:relative;
+	right:30px;
+	font-size:10px;
+	color:#000000;
+}
+ul#sec_nav li { 
+	margin-left: 20px; 
+	float:left; 
+	line-height:1em;	
+}
+ul#sec_nav a{
+	color:#000;
+	text-decoration:none;
+}
+ul#sec_nav a:hover{	color:#990000; }
+
+form#login_form a {	
+	background: -moz-linear-gradient(top, rgba(0,0,0,1), rgba(17,47,94,1));
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, from(rgba(0,0,0,1)), to(rgba(17,47,94,1)));
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr='#ff000000', EndColorStr='#ff112f5e');
+	color:#fff;
+	font-family:arial;
+	font-size:smaller;
+	line-height:2em;
+	padding:3px 8px;
+	text-transform:uppercase;
+}
+
+a#logout, a#fund_login, a#lost_password {
+    position: absolute;
+    right: 46px;
+    top: -60px;
+	font-size:11px;
+	color:#fff;
+}
+a#fund_login{
+    right: 176px;
+}
+a#lost_password {
+    right: 46px;
+}
+
+/* 9.SITEINFO/FOOTER
+---------------------------------------------------------------------- */
+div#footer_row .wrapper {
+	background: none repeat scroll 0 0 #ffffff;
+    border-top: none;
+    border-bottom: none;
+    font-size: 12px;
+    height: 53px;
+    line-height: 3.1em;
+    position: relative;
+    text-align: center;
+    vertical-align: baseline;
+	color:#999999;
+	margin-bottom:50px;
+	padding-top:0px;
+	border-color:#dadfe4;
+}
+div#footer_row .wrapper p{
+	margin:0;
+	font-size:.8em;
+/*	display:inline;
+	padding:22px 0 0 34px;
+	float:left;*/
+}
+div#footer_row #copyright{
+	float:left;
+	padding-left:140px;
+    margin-top: 20px;
+}
+div#footer_row #copyright a{
+	padding-left:20px;
+	text-decoration:underline;
+}
+div#footer_row #poweredby{
+	float:right;
+	padding-right:140px;
+	margin-top: 20px;
+/*	color:#888;*/
+}
+/*div#footer_row #poweredby a{	color:#888;}
+div#footer_row #poweredby a:hover{	color:#888; }*/
+div#footer_row .wrapper p+a {
+/*	left:10px;
+	position:relative;*/
+}
+#footer_row .wrapper hr{
+    border-color: #AFBAC6 -moz-use-text-color -moz-use-text-color;
+    border-right: medium none;
+    border-style: solid none none;
+    border-width: 1px medium medium;
+    margin-bottom: 17px;
+}
+
+
+/* 10.HOMEPAGE
+---------------------------------------------------------------------- */
+
+	/* 10.1 FUND_LOGIN STRUCTURE ------------ */		
+	#fund_login_pg #content_col{display:none;}
+		
+	/* 10.2 FUND_LOGIN FORM ------------ */	
+	.login, .home_box{
+		background-color: rgba(0, 0, 0, 0.75);
+		height: 278px;
+		padding: 0;
+		position: absolute;
+		right: 170px;
+		top: 160px;
+		width: 375px;
+		z-index: 10;
+	}
+	.blurb {
+		background-color: rgba(0,0,0,.75);
+		height: auto;
+		right: 170px;
+		padding: 0 0 35px;
+		position: absolute;
+		top: 160px;
+		width: 401px;
+		z-index: 10;
+		color:#ffffff;
+		max-height:500px;
+	}
+	.blurb a{
+		text-decoration:none!important;
+		color:#fff!important;
+		font-weight:900;
+		text-transform:uppercase;
+	}
+	.login p, .home_box p{
+		position: relative;
+		top: 25px;
+		color:#fff;
+		display:inline;
+		clear:both;
+		margin:0 0 0 30px;
+	}
+	.login p:first-child{
+		font-weight:400;
+	}
+	.login p img{
+		vertical-align: -6px;
+		margin:0 5px;
+		display:inherit;
+	}
+	.login label {
+		clear:left;
+		color:#ffffff;
+	}
+	.login input{
+		border-color:#B9BAB2 #A9AB86 #A9AB86 #B9BAB2;
+		border-style:solid;
+		border-width:1px;
+		display:block;
+		float:left;
+		height: 20px;
+		margin: 0 0 8px;
+		width: 175px;
+	}
+	.login ul {
+		margin: 0;
+		position: relative;
+		top: 30px;
+	}
+	.login ul li{
+		line-height:1.5em;
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	.login ul li a{
+		text-decoration:underline;
+		color:#ffffff;	
+		font-size:smaller;
+		
+	}
+	.login h2{
+		margin: 30px 0 0 40px;
+		color:#ffffff;
+		font-size:24px;
+	}
+	.login form{
+		color: #ffffff;
+		margin: 0 0 0 40px;
+		position: relative;
+		top: 15px;
+	}
+	.login form img{cursor:pointer;}
+	
+	#fund_login_pg div#content_row .banner, #home_pg div#content_row .banner{
+		height: 551px;
+	    min-height: 551px;
+		width:auto;
+	}
+	
+	/* 10.3 HOME STRUCTURE ------------ */
+	#home_pg #content_col{ display:none; }
+	.blurb h2{
+		color: #7AB800;
+		margin: 5px 0 0 35px;
+		line-height:1em;
+	}
+	.blurb h3{
+		color: #ffffff;
+		margin: 30px 0 0 35px;
+	}
+	.blurb p{
+		color: #ffffff;
+		line-height: 1.5em;
+		margin:10px 0 0 35px;
+		width: 320px;
+		font-size:12px!important;
+	}
+	
+	/* 10.4 HOME BOX ------------ */
+	.home_box h1{
+		margin: 30px 0 0 40px;
+	}
+	.home_box h2.clean{
+		font-family:"Times New Roman", Times, serif;
+		font-style:italic;
+		color:#3e556b;
+		margin: 0 0 0 115px;
+		padding: 0;
+	}
+	.home_box p{
+		color:#333;
+		line-height: 1.5em;
+		top:15px;
+		display:block;
+		margin-bottom:20px;
+		width:320px;
+	}
+	.home_box a{
+		text-decoration:underline;
+		color:#000000;	
+	}
+	
+	
+/* 11.FORM
+---------------------------------------------------------------------- */
+label{
+	display:block;
+	width:150px!important;
+	white-space:nowrap;
+}
+
+
+/* 12.PERFORMANCE PAGE
+---------------------------------------------------------------------- */
+#performance_pg table td{
+	border:none;
+}
+#performance_pg table th{
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 7.14% !important;
+}
+
+/* 14.SIGNUP PAGE
+-----------------------------------------------------------------------*/
+#signup_pg .form_double_width span{ 
+/*	color:#FFFFFF !important; 
+	font-size:medium;
+	*/
+}
+#signup_pg input[name="data[investment_size_typical]"]{ display:none;}
+#signup_pg label[for="data[investment_size_initial]"],
+#signup_pg label[for="data[investment_size_core]"]{ width:60px!important;}
+
+/* 15.CONTACT PAGE
+-----------------------------------------------------------------------*/
+#contact_pg table p{text-align:left;}
+
+/* 18.MANAGEMENT PAGE
+-----------------------------------------------------------------------*/
+#management_pg h3{margin-top:40px;}
+#management_pg p{margin-top:10px;}
+#management_pg i{font-weight:900;}
+
+#management_pg h5{margin-bottom:10px;}
+#content_col #management_pg table{margin-bottom:5px; border-bottom: 1px solid #E1E1E1;}
+#content_col #management_pg table td {border:none;}
+#content_col #management_pg table td div img{float:left; margin: 0 30px 0px 0;}
+
+
+/* 00.MISC
+---------------------------------------------------------------------- */
+br{clear:both;}
+small a{color:#FFFFFF !important; font-family:Arial, Helvetica, sans-serif}
+.tri_dots{display:inline; padding:0 5px;}
+img#bkgnd{position:absolute;min-width:1200px; display:table-row; width:100%;}
+
+img#top_shadow{
+	left: 400px;
+    position: relative;
+    top: -20px;
+}
+img#btm_shadow{
+    bottom: -20px;
+    left: 10px;
+    position: absolute;
+}
+img#lft_shadow{
+    left: -22px;
+    position: absolute;
+    top: -130px;
+}
+img#rt_shadow{
+    bottom: -50px;
+    left: 1214px;
+    position: absolute;
+}
+
+.selected{
+	color:#7BB800!important;
+}
+
+h2:not(.clean),.blurb h1,.login h2,#copyright,#poweredby,.h4,a#logout,a#fund_login,a#lost_password,#main_nav ul li a{font-family:'Cinzel', serif;}

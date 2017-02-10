@@ -1,0 +1,31 @@
+{include file="components/main_header.html"}
+{include file="components/main_template.html"}
+
+{include file="content/sub_fund_nav.html"}
+<div id="performance_wrapper">
+
+{if !$smarty.request.id}
+
+	{if !$article}
+
+		{if $smarty.request.catid}
+
+			{hcocore assign=cat method=getTable table='document_categories' where="id = '`$smarty.request.catid`'"}
+
+			{assign var=label value=$cat.title}
+
+		{/if}
+
+
+	{/if}
+
+	{include file="lists/documents.html" main_id=2}
+
+{else}
+
+
+	{include file="lists/document_view.html"}
+
+{/if}
+</div>
+{include file="components/main_footer.html"}

@@ -1,0 +1,54 @@
+{if $mailsent}
+	<div>
+		Thank you your request has been delivered.
+	</div>
+{else}
+	<form method="post" action="{$config.site_url}legal" validate='true'>
+		<input type="hidden" name="mode" value="send">
+		<p><strong>Which documents would you like to receive?</strong></p>
+
+		{hcocore assign=dc method=getTable table=document_categories where='parent_id=3' order="weight asc" list=1}
+		{assign var=fid value=$smarty.request.fund_id|default:999}
+
+		{if count($dc)}
+			{foreach item=c from=$dc}
+            {*debug*}
+				{if $fid != '999' && $c.id == '11'}
+                    {if count($dc) > 1}
+                        <h2>{$c.title}</h2>
+                    {/if}
+                    {assign var=cid value=$c.id}
+                    {hcocore assign=ds method=getTable table=documents where="cat_id=$cid and active=1 and fund_id = $fid" order="weight asc" list=1}
+                    {if count($ds)}
+                        {foreach item=d from=$ds name=ds}
+                            <div class='legal_selection'>
+                                <input type='checkbox' name='data[{$d.id}]' value='{$d.title}' style='margin-bottom:0;margin-right:10px;'>
+                                {if $pdf_stamper && $d.download}
+                                    <a href="{$config.site_url}downloads/{$d.download}">{$d.title}</a>
+                                {else}
+                                    {$d.title}
+                                {/if}    
+                                </input>
+                            </div>
+                            {if $smarty.foreach.ds.iteration % 2 == 0}<br clear='all' />{/if}
+                        {/foreach}
+                    {/if}
+				{/if}
+			
+            {/foreach}
+		{/if}
+
+		<div style='clear:both;margin-top: 10px;'>
+			<p>Note to {$config.fund_name}:</p>
+			<textarea name="description" rows="4" cols="50" ></textarea><br /><br />
+			<input type="submit" value="Request Documents">
+		</div>
+	</form>
+	<br clear='both' />
+    {*hcocore assign=document_request_explanation method=getContent pageid=$attached_content}{$document_request_explanation.data*}
+    <p>
+	<b>Why do I have to request access?</b></p>
+<p>
+	In order to gain access to specific documents such as an Offering Memorandum you must request the document directly from the manager. You may use the above form to request this document as well as any others you wish to review.</p>
+
+{/if}

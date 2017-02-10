@@ -1,0 +1,144 @@
+[config]
+live=true; TRUE when the site goes live
+site_url=http://venchuer2.hedgecowebsites.com/
+file_dir=/home/venchuer2/public_html/
+image_url=http://venchuer2.com/images/
+fund_name="RSI Online Inc"
+website_by = "Powered by HedgeCo Websites"
+website_by_url  = "http://www.hedgecowebsites.com"
+
+override_path = "base/"
+
+; Website Configuration
+site_expiration 	= 10-16-12 	; payment reminder on
+require_login   	= false  	; limit pageviews to accredited investors
+lightbox	       	= true     	; use lightbox component
+use_href            = false    	; change tags with an href attribute to an anchor
+show_tooltips       = false    	; show tooltips in the website (always enabled in admin)
+show_titles			= true		; show titles in the main_template
+show_activity		= true		;
+navigation     		= true		;
+show_locked			= true		; show nav/subnav links of locked pages
+show_subnav         = false     ; use the subnavigation in the website
+show_funds_sub		= false		; show funds as subnav
+advanced_mode		= true		;
+add_pages 			= true		;
+ytd_override		= false		; show year to date overrides in fund returns admin
+seo					= false		; enable seo package
+return_type			= monthly	; frequency of returns 'daily|weekly|monthly|quarterly|yearly'
+default_page  		= home		; set the default page to load after a successful login (default is the last link they clicked)
+force_default		= true		; force going to default page instead of the Session 'current page' or 'next url'.	****[$70 upcharge]
+favicon				= false		; favicon =]	****[$70 upcharge to create and upload the png]
+file_uploader       = false		; upload data files
+
+; Google map options
+custom_map			= false		; Override google map options
+map_zoom_level		= 15		;
+contact_address		= "166 East 61 Street, New York, NY 10065";
+contact_suite		= "Suite 16K"
+contact_map_image	= favicon_src.png
+contact_number		= ""
+contact_toll_free	= ""
+
+; Website Configuration
+user_log   			= true  	; enable website logging
+user_statements  	= true  	; user monthly statements
+user_groups			= false		;
+user_documents   	= false  	; user document associations
+multilingual   		= false  	; enable flags in the admin
+timezone_adjust  	= 0  		; adjust the timezone for opentracker
+pdf_reports   		= false  	; snapshots (aka pdf_reports)
+contact_form   		= false  	; show contact form on contact page	****[$280 upcharge]
+
+document_module		= true		; turn documents off  also master switch for all document modules
+marketing  			= true  	; show marketing admin
+letters   			= true  	; show letters admin
+legal_docs			= true		;
+
+investors  			= true  	; show investors admin
+add_users   		= true  	; allow administrators to add new users
+management  		= true  	; show managment admin
+fund_admin			= false		; show fund admin false for non-hedgefund websites
+benchmark_admin		= false		; allow administrators to add, change and assign benchmarks to funds
+sectors   			= false  	; show sectors and holdings admin
+doc_requests  		= false  	; show doc requests on admin homepage
+letter_categories 	= true  	; allow administrators to categorize letters & articles
+marketing_categories = false	; allow administrators to categorize marketing materials
+excel_import  		= true  	; allow administrators to upload excel documents
+benchmark_import	= false		; allow administrators to import benchmark excel document
+data_export			= true		; allow administrators to download an xml file containing the database data
+seo					= false		; enable seo package
+quotes				= false		; enable quotes on pages
+external_userid		= true		; allow external user ids
+
+graph_options		= false		; shows options for return graph	****[$250 upcharge]
+
+image_uploader		= false;
+
+funddoc_free_download	= false	; make all downloadable documents available without logging in
+assign_doc_protection	= false	; allow admin to assign select document categories to be protected or not. ;	INSURE TO ADD 'protected' TO 'document_categories' IN DB WITH TYPE 'int(2)'
+
+user_groups			= false;
+new_group_system	= false;
+
+color1 			= 395a78		; hex color for main elements (default:395a78) (dark blue)
+color2			= b0c5dd		; hex color for sub elements (default:b0c5dd) (light blue)
+color3			= e6ecf4		; hex color for links and content backgrounds (default: e6ecf4) (white blue)
+color4			= e6ecf4		; hex color for links and content backgrounds (default: e6ecf4) (white blue)
+
+; enable a segment of the performance section using a date range
+start_date		= 				; 2007-11-15 (always use -15 for the day)
+end_date		= 				; always use 15 for the day
+
+mooDev 			= true			; set this to false for a live site true to include the entire mootools framework
+jQuery			= true			; set this to false for no use of jQuery
+ckeditor		= true;
+ckeditor_411	= false;	
+
+[filetypes]
+file_temp = tmp/
+file_manager_img = images/manager/
+
+[database]
+hostname = localhost
+db_name=venchuer2_site
+db_user=venchuer2_user
+db_pass=venchuerFullS1te
+
+[fonts]
+useWebfont			= true		;
+
+[email]
+showBccBox			= true		; show the bcc option 
+sendBcc				= true		; by default, send admin bcc of emails sent to users	****[$280 upgrade]
+
+from_email=support@hedgecowebsites.com
+return_email=support@venchuer2.com
+
+;from_email=support@hedgecowebsites.com
+;return_email=rocksolidassetmanagement@gmail.com
+
+;from_email=support@hedgecowebsites.com
+;return_email=robert@hedgecowebsites.com
+
+[templates] ;templates to consider for new website design
+
+override[] = components/header_common.html
+;override[] = components/updatecontent_switch.html
+;override[] = components/template_dir.html
+override[] = components/main_header.html
+override[] = components/main_footer.html
+override[] = components/home_header.html
+override[] = components/home_footer.html
+override[] = components/main_template.html
+override[] = content/home_content.html
+override[] = content/contact.html
+;override[] = content/logo.html
+;override[] = performance/monthly.html
+override[] = forms/login.html
+override[] = lists/documents.html
+
+;override[] = admin/pages/user_edit.html
+;override[] = content/management.html
+;override[] = forms/signup.html
+;override[] = forms/legal.html

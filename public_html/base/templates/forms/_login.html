@@ -1,0 +1,26 @@
+<div class="login">
+<h3>Member Login</h3>
+	<form id="login_form" name="login_form" action="{$config.site_url}login" method='post'>
+	<p><input id="username" name="username" placeholder="User name:" value="" title="username"  type="text"/>
+	<input id="password" name="password" placeholder="Password:" value="" title="password"  type="password"/>
+	<br/></p>
+	<img src="{$config.asset_url}images/login_btn.png" onclick="document.login_form.submit();" />
+	</form>
+{*	<ul>
+		<li><a href="signup">New Investor Sign Up Here</a></li>
+		<li><a href="lost_password">Lost Password</a></li>
+	</ul>*}
+</div>        
+{literal}
+<script>
+function enterPressed(evn) {
+	if (window.event && window.event.keyCode == 13) {
+		document.login_form.submit();
+	} else if (evn && evn.keyCode == 13) {
+		document.login_form.submit();
+	}
+}
+document.onkeypress = enterPressed;
+</script>
+{/literal}
+<br/>

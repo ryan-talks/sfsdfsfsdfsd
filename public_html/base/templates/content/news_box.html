@@ -1,0 +1,10 @@
+<div id="news_box">
+	<h2>News</h2>
+    <ul>
+{counter start=0 assign="artcnt"}
+{hcocore assign=la method=getAllDocumentsByDate cat_id=31 fid=$fid limit=4}
+{foreach item=d from=$la}
+{counter}{*debug*}
+			<li><a href="{$d.url}" target="_blank">{$d.title|truncate:48:"...":true}</a></li>
+{/foreach}</ul>
+</div>

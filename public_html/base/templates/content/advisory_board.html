@@ -1,0 +1,54 @@
+{hcocore assign=management method=getManagementList active=1}
+
+{hcocore assign=management_team method=getManagementStructure active=1 tid=$team_id}
+{if count($management_team)}
+
+	{*if count($management)>1}
+	<!--select box for different teams -->
+	<div align="right">
+	<select name="management_teams" onchange="window.location=this.value" style="width:160px;">
+	<option value="#">Select a Team</option>
+	{foreach item=d key=k from=$management}
+		<option value="{$config.site_url}&url=management/team_id={$d.team_id}"  >{$d.title}</option>
+	{/foreach}
+	</select>
+	</div>
+	<!--select box for different teams -->
+	{/if*}
+
+	{foreach item=d key=k from=$management_team}
+        {if $d.team_id == 5}
+            {*if count($management)>1}<h3>{$d.title}</h3>{/if*}
+            {if count($d.members)}
+                {foreach item=doc from=$d.members}
+                    <a name='{$doc.name}'></a>
+                    <table border="0" width="100%" style="margin-bottom: 10px;margin-top:10px;float:left;">
+                    <tr>
+                    {if $doc.headshot ne "" && $doc.hide_head != 1}
+                        <td width="120px" valign="top">
+                        <img
+                        src="{$config.site_url}images/thumb_scaler.php?src={$config.asset_url}images/manager/{$doc.headshot}&scale=200&f=0"
+                        alt="{$doc.name} - Image" style="float: left;margin: 0 30px 0px 0; width:150px; z-index: 1;">
+                        </td>
+                    {/if}
+                    <td valign="top">
+                        {if $doc.name}
+                            <strong class='manager_name'>{$doc.name}</strong>
+                        {/if}
+                        {if $doc.position}
+                            <br />
+                            <i>{$doc.position}</i>
+                        {/if}
+                        {if $doc.biography}
+                            <br />
+                            {$doc.biography}
+                        {/if}
+                    </td>
+                    </tr>
+                    </table>
+    
+                {/foreach}
+            {/if}
+		{/if}
+	{/foreach}
+{/if}

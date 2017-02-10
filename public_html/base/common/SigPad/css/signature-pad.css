@@ -1,0 +1,187 @@
+body {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+.m-signature-pad {
+    position: fixed !important;
+    width: 900px !important;
+    height: 300px !important;
+    top: 10%;
+    left: calc(50% - 450px);
+    margin: auto;
+    border: 4px solid #e8e8e8;
+    background-image: url("../../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: unset !important;
+    background-position: 95% 72% !important;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: unset !important;
+    z-index: 1000;
+}
+.m-signature-pad:before, .m-signature-pad:after {
+	position: relative;
+	z-index: -1;
+	content: "";
+	width: 40%;
+	height: 10px;
+	left: 20px;
+	bottom: 10px;
+	background: transparent;
+	-webkit-transform: skew(-3deg) rotate(-3deg);
+	-moz-transform: skew(-3deg) rotate(-3deg);
+	-ms-transform: skew(-3deg) rotate(-3deg);
+	-o-transform: skew(-3deg) rotate(-3deg);
+	transform: skew(-3deg) rotate(-3deg);
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+.m-signature-pad:after {
+	left: auto;
+	right: 20px;
+	-webkit-transform: skew(3deg) rotate(3deg);
+	-moz-transform: skew(3deg) rotate(3deg);
+	-ms-transform: skew(3deg) rotate(3deg);
+	-o-transform: skew(3deg) rotate(3deg);
+	transform: skew(3deg) rotate(3deg);
+}
+.m-signature-pad--body {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	top: 20px;
+	bottom: 60px;
+	border: 1px solid #f4f4f4;
+	background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAG0lEQVQYlWNoaGiQIgYzNDQ0SDEQA0YVUkUhANPxHm96cEkHAAAAAElFTkSuQmCC) repeat;
+}
+.m-signature-pad--body  canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.02) inset;
+}
+.m-signature-pad--footer {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	height: 40px;
+}
+.m-signature-pad--footer  .description {
+	color: #C3C3C3;
+	text-align: center !important;
+	font-size: 1.2em;
+	margin-top: 1em;
+}
+.m-signature-pad--footer  .button {
+	position: absolute;
+	bottom: 0;
+}
+.m-signature-pad--footer  .button.clear {
+	left: 0;
+}
+.m-signature-pad--footer  .button.review {
+	left: 150px;
+}
+.m-signature-pad--footer  .button.save {
+	right: 0;
+}
+
+@media screen and (max-width: 1024px) {
+.m-signature-pad {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+	min-width: 250px;
+	min-height: 300px;
+	margin: 5%;
+}
+#github {
+	display: none;
+}
+}
+
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+.m-signature-pad {
+	margin: 10%;
+}
+}
+
+@media screen and (max-height: 320px) {
+.m-signature-pad {
+    position: fixed !important;
+    width: 300px !important;
+    height: 200px !important;
+    top: 10%;
+    left: calc(50% - 450px);
+}
+.m-signature-pad--body {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 32px;
+}
+.m-signature-pad--footer {
+	left: 20px;
+	right: 20px;
+	bottom: 4px;
+	height: 28px;
+}
+.m-signature-pad--footer  .description {
+	font-size: 1em;
+	margin-top: 1em;
+}
+}
+#refsig_dialog{
+	display:none;
+	z-index: 1000;
+	position: absolute;
+	height: auto;
+	width: 30%;
+	top: 20px;
+	border:none;
+	border-bottom: rgba(0,0,0,.1) solid 1px;
+	border-left: rgba(0,0,0,.1) solid 1px;
+	background: #fff;
+	right: 20px;
+	cursor:url(http://hedgecowebsitesdemo.com/base/common/images/cross_icon_border_16.png),not-allowed;
+	overflow:hidden;
+}
+#refsig_dialog img{
+	width: 100%;
+	height: auto;
+}
+.signature_image{
+	width:300px;
+	height:auto;
+	border-bottom:thin solid;
+}
+.scratch {
+    font-size: 1.5em;
+    font-weight: 100;
+    padding-right: 0;
+    bottom: 5px;
+    position: relative;
+    margin-left: -20px;
+	width:300px;
+	height:77px;
+}
+.cancel{
+	background-color: #89c546 !important;
+	color: #ffffff !important;
+	border-radius: 50px;
+	position: absolute;
+	overflow: hidden;
+	top: -13px;
+	right: -13px;
+	font-family: 'Raleway', sans-serif !important;
+	font-size: 1em;
+	font-weight: 600;
+	padding: 7px 11px !important;
+}

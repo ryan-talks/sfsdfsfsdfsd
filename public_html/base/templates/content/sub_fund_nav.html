@@ -1,0 +1,27 @@
+<div id="sub_fund_nav">{literal}
+  <script type="text/javascript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+  {/literal}
+  <form name="form" id="form">
+    <select name="jumpMenu" id="jumpMenu" onChange="MM_jumpMenu('parent',this,0)">
+      <option>Select Fund</option>
+      
+  {foreach item=f from=$fundList}{if $f.id != '999' && $f.id != $fund_id}
+      <option value="{$config.site_url}{$pageID}&fund_id={$f.id}">{$f.name}</option>
+      {/if}{/foreach}
+  
+    </select>
+  </form>
+  <ul>
+    <li> {if $pageID != 'performance'}<a href='{$config.site_url}performance&fund_id={$fund_id}'>Performance</a>{else}<span class="sub_selected">Performance</span>{/if}</li>
+    <li> {if $pageID != 'structure'}<a href='{$config.site_url}structure&fund_id={$fund_id}'>Structure</a>{else}<span class="sub_selected">Structure</span>{/if}</li>
+    <li> {if $pageID != 'letters'}<a href='{$config.site_url}letters&fund_id={$fund_id}'>Communications</a>{else}<span class="sub_selected">Communications</span>{/if}</li>
+    <li> {if $pageID != 'legal'}<a href='{$config.site_url}legal&fund_id={$fund_id}'>Documents</a>{else}<span class="sub_selected">Documents</span>{/if}</li>
+  </ul>
+</div>
