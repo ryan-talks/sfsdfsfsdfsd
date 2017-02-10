@@ -823,6 +823,7 @@ ul.key_features_list li div.content p{
 	margin-bottom:20px !important;
 }
 #subscription_agreement_pg div.wrapper .u{text-decoration:underline !important;}
+#subscription_agreement_pg div.wrapper .b{font-weight: 600;}
 .sf {
     font-size: 7pt !important;
     margin-bottom: -5px;
