@@ -18,19 +18,19 @@
 <p>&nbsp;</p>
 
 <p>Please initial below regarding the Underlying Subscriber:</p>
-<p><input class="initials_requested" name="data[underlying_subscriber1]" type="text" required value="" placeholder="Initials"><label for="data[underlying_subscriber1]"> By initialing here, Representative Subscribers confirm and represent that they are duly authorized by the Underlying Subscriber for whom they act to make this investment on their behalf and that they have the requisite power and investment authority to act on behalf of and bind such Underlying Subscriber in subscribing hereto.</label></p>
+<p><input type="checkbox" name="data[underlying_subscriber1]" value="By initialing here, Representative Subscribers confirm and represent that they are duly authorized by the Underlying Subscriber for whom they act to make this investment on their behalf and that they have the requisite power and investment authority to act on behalf of and bind such Underlying Subscriber in subscribing hereto."><label for="data[underlying_subscriber1]"> By initialing here, Representative Subscribers confirm and represent that they are duly authorized by the Underlying Subscriber for whom they act to make this investment on their behalf and that they have the requisite power and investment authority to act on behalf of and bind such Underlying Subscriber in subscribing hereto.</label></p>
 
-<p><input class="initials_requested" name="data[underlying_subscriber2]" type="text" required value="" placeholder="Initials"><label for="data[underlying_subscriber1]"><label for="data[underlying_subscriber2]"> By initialing here, Representative Subscribers confirm that the representations, warranties and agreements made herein are made by the Subscriber: (i) with respect to the Subscriber; and (ii) with respect to the Underlying Subscriber.</label></p>
+<p><input type="checkbox" name="data[underlying_subscriber2]" value="By initialing here, Representative Subscribers confirm that the representations, warranties and agreements made herein are made by the Subscriber: (i) with respect to the Subscriber; and (ii) with respect to the Underlying Subscriber."><label for="data[underlying_subscriber2]"> By initialing here, Representative Subscribers confirm that the representations, warranties and agreements made herein are made by the Subscriber: (i) with respect to the Subscriber; and (ii) with respect to the Underlying Subscriber.</label></p>
 
-<p><input class="initials_requested" name="data[underlying_subscriber3]" type="text" required value="" placeholder="Initials"><label for="data[underlying_subscriber1]"><label for="data[underlying_subscriber3]"> By initialing here, Representative Subscribers confirm and represent that they have performed all investigations necessary or appropriate to ensure compliance with all applicable money laundering, anti-terrorist and related laws and regulations and will provide their procedures, if requested.</label></p>
+<p><input type="checkbox" name="data[underlying_subscriber3]" value="By initialing here, Representative Subscribers confirm and represent that they have performed all investigations necessary or appropriate to ensure compliance with all applicable money laundering, anti-terrorist and related laws and regulations and will provide their procedures, if requested."><label for="data[underlying_subscriber3]"> By initialing here, Representative Subscribers confirm and represent that they have performed all investigations necessary or appropriate to ensure compliance with all applicable money laundering, anti-terrorist and related laws and regulations and will provide their procedures, if requested.</label></p>
 
 <ol>
   <li>
     <p> Please indicate where you would like us to send the confirmation of a subscription for an Interest, a copy of these Subscription Documents and any other communications (including redemption checks) that are not delivered electronically: (initial one)</p>
     
-    <p><input class="initials_requested" name="data[send_conf]" type="text" required value="" placeholder="Initials"><label for="data[send_conf]"> Legal address below</label></p>
+    <p><input type="radio" name="data[send_conf]" value="Legal address below"> Legal address below</p>
     
-    <p><input class="initials_requested" name="data[send_conf]" type="text" required value="" placeholder="Initials"><label for="data[send_conf]"> Mailing address below</label></p>
+    <p><input type="radio" name="data[send_conf]" value="Mailing address below"> Mailing address below</p>
   </li>
   <li>
     <p> The Fund, the Investment Manager and the Administrator (each as defined) will send you correspondence and documents and may send reports and other communications to you in electronic form, such as email or by posting on a website (with notification of the posting by email). The Fund does not impose any additional charge for electronic delivery, but you may incur charges from your internet service provider and your telephone company or other internet access provider. In addition, there are risks, such as system outages, that are associated with electronic delivery. The Fund will take reasonable precautions to ensure the integrity of the communications but will not be liable for any interception. If you consent, it is effective immediately and remains in effect as long as you are a Shareholder, unless you otherwise notify the Fund in writing.</p>
@@ -40,12 +40,10 @@
     <p> Do you consent to receive deliveries of reports and other communications from the Fund and the Investment Manager (including annual and other updates of all documents and customer privacy policies and procedures) exclusively in electronic form{* without separate mailing of paper copies*}?</p>
     <p><input type="radio" name="data[consent_to_receive]" value="Yes"> Yes&nbsp;&nbsp;&nbsp;&nbsp;
     <input type="radio" name="data[consent_to_receive]" value="No"> No</p>
-    
-    <span id="consent_to_receive_info" class="hide"> 
-        <p> If No, please indicate your preferred correspondence method:</p>
-        <p><input type="radio" name="data[preferred_correspondence]" value="Fax"> Fax&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="data[preferred_correspondence]" value="Postal Service"> Postal Service</p>
-    </span>
+        
+{*    <p> If No, please indicate your preferred correspondence method:</p>
+    <p><input type="radio" name="data[preferred_correspondence]" value="Fax"> Fax&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="data[preferred_correspondence]" value="Postal Service"> Postal Service</p>
     
     <p><strong>Legal address:</strong></p>
     <p><input type="text" id="legal_mailing_name" name="legal_mailing_name" placeholder="Name"></p>
@@ -73,11 +71,11 @@
       <input type="text" id="legal_mailing_attn" name="legal_mailing_attn">
     </p>
     
-    <p> Telephone number:
+    <p> Telephone number: ( ) - 
       <input type="text" id="legal_phone" name="legal_phone" placeholder="" maxlength="14">
     </p>
     
-    <p> Facsimile number: 
+    <p> Facsimile number: ( ) - 
       <input type="text" id="legal_fax" name="legal_fax" placeholder="" maxlength="14">
     </p>
     
@@ -108,15 +106,15 @@
       <input type="text" id="legal_other_mailing_attn" name="legal_other_mailing_attn">
     </p>
     
-    <p> Telephone number:
+    <p> Telephone number: ( ) - 
       <input type="text" id="legal_phone_other" name="legal_phone_other" placeholder="" maxlength="14">
     </p>
     
-    <p> Facsimile number: 
+    <p> Facsimile number: ( ) - 
       <input type="text" id="legal_fax_other" name="legal_fax_other" placeholder="" maxlength="14">
     </p>
     
     <p> Email Address:
     	<input type="email" id="legal_email_other" name="legal_email_other" placeholder="">
-    </p>
+    </p>*}
 </section>

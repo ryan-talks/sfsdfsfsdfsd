@@ -43,30 +43,6 @@ jQuery(document).ready(function(){
 		}
 	});	
 	
-	$('input:radio[name="data[consent_to_receive]"]').change(function(){
-		if(this.checked && this.value==="No"){
-			 $('#consent_to_receive_info').show().find('input').each(function(){
-                $(this).prop('required',true);
-            });
-		}else{
-			 $('#consent_to_receive_info').hide().find('input').each(function(){
-                $(this).removeProp('required').val("");
-            });			
-		}
-	});	
-	
-	$('input:radio[name="data[insurance_comp]"]').change(function(){
-		if(this.checked && this.value==="Yes"){
-			 $('#insurance_comp_info').show().find('input').each(function(){
-                $(this).prop('required',true);
-            });
-		}else{
-			 $('#insurance_comp_info').hide().find('input').each(function(){
-                $(this).removeProp('required').val("");
-            });			
-		}
-	});		
-	
 	
  	$( "#signature-pad" ).hide();
 	/*	if signature for this space is NOT avail, open sigpad	*/

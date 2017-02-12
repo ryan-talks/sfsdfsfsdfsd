@@ -18,11 +18,6 @@ jQuery(document).ready(function(){
 		
 	});*/
 	
-	$("#instructions_check").click(function(){
-		$("#locked_instructions").fadeIn();
-		$(this).fadeOut();
-	});
-	
 	$(window).trigger('resize');	
 	if($('#div_farm').children('div').length > 0){
 		var home_slide_cnt = $('#div_farm').children('div').length;
