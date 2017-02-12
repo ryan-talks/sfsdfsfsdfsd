@@ -7,8 +7,38 @@
 	<input name="mode" value="subdoc" type="hidden">
 	{if !empty($user_data.id)}<input name="userID" value="{$user_data.id}" type="hidden">
 {/if}
+
+<div id="checklist">
+	<ul>
+    	<li><a href="javascript:void(0)" id="top_sheet" class="sub_popups">Subscription Booklet</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Subscription Instructions</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Subscription Agreement for Shares</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Representative Subscriber Only</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">BVI Investor Notice Acknowledgement</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <br />
+        <li><a href="">Appendix A</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix B</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix C</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix D</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix E</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix F</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix G</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix H</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix I</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix J</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Appendix K</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <br />
+        <li><a href="">Additional Subscription Form</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Request for Redemption</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+        <li><a href="">Privacy Notice</a> &nbsp; <i class="fa fa-times-circle fa-lg"></i></li>
+    </ul>
+</div>
+
+
+
 {include file="forms/top_sheet.html"}
 {include file="forms/subscription_instructions.html"}
+
 {include file="forms/subscription_agreement_for_shares.html"}
 {include file="forms/appendix_a.html"}
 {include file="forms/representative_subscriber_only.html"}
@@ -28,7 +58,30 @@
 {include file="forms/privacy_notice.html"}
 
 <div id="subdoc_submit">
-	<input name="accept" value="TEST SUBMIT BUTTON" type="submit">
+    <input name="accept" value="TEST SUBMIT BUTTON" type="submit">
 </div>
 
 </form>
+
+{literal}
+<script>
+	$('.sub_popups').click(function(){
+		var section_id = this.id;
+		var section = section_id + "_section";
+		var sectionHeight = $("#" + section).height();
+		$(".wrapper").css('height', sectionHeight + 50);
+		$("#" + section).fadeIn();
+	});
+	
+	$('.popup_close_btn').click(function(){
+		$('.popupSection').fadeOut();
+	});
+	
+	/*function section_popup(){
+		var section_id = document.getElementById(this);
+		var section = section_id + "_section";
+		console.log("hello");
+		$(section).fadeIn();
+	}*/	
+</script>
+{/literal}

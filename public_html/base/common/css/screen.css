@@ -760,7 +760,7 @@ ul.key_features_list li div.content p{
 	text-align:right;
 }
 #subscription_agreement_pg div.wrapper{
-	width:70%;
+	width:50%;
 	margin:auto;
 	padding:5% 0;
 	text-align:center;
@@ -803,13 +803,15 @@ ul.key_features_list li div.content p{
 }
 
 #subscription_agreement_pg div.wrapper table th,
-#subscription_agreement_pg div.wrapper table td{padding:5px;}
+#subscription_agreement_pg div.wrapper table td{padding:5px; font-size: 15px; font-weight: 300;}
 
 #subscription_agreement_pg div.wrapper ol {
     list-style-type:decimal;
     list-style-position: outside;
     list-style-image: none;
     padding: 0 0 0 50px;
+	font-weight: 600;
+	font-size: 18px;
 }
 #subscription_agreement_pg div.wrapper ol li {
     text-align: justify;
@@ -821,19 +823,22 @@ ul.key_features_list li div.content p{
 #subscription_agreement_pg div.wrapper p{
 	font-size: 13pt;
 	margin-bottom:20px !important;
+	font-weight: 300;
 }
 #subscription_agreement_pg div.wrapper .u{text-decoration:underline !important;}
 #subscription_agreement_pg div.wrapper .b{font-weight: 600;}
+#subscription_agreement_pg div.wrapper .i{font-style: italic;}
 .sf {
     font-size: 7pt !important;
     margin-bottom: -5px;
     position: relative;
     overflow: hidden;
     display: inline-block;
+	color: #168bb2!important;
 }
 .source{font-size:8pt !important;}
 #subscription_agreement_pg div.wrapper hr{border:none; border-bottom:1px solid black; width:200px;}
-#subscription_agreement_pg div.wrapper input{border:thin solid black;}
+#subscription_agreement_pg div.wrapper input{border:thin solid black; padding-left: 5px; width: 150px;}
 .signature{
 /*	border:thin solid black;*/
 	padding:0 3px;
@@ -843,7 +848,72 @@ section{
 	page-break-before:always;
 	page-break-after:always;
 }
+
+#subscription_agreement_pg u{text-decoration: underline!important;}
+
+.sub_link:hover{color: #89c546!important;}
+
+//#locked_instructions{display: none;}
+
+#subscription_agreement_pg ::placeholder{font-family: "Times New Roman"!important;}
+
+.initials_requested{font-family: "Satisfy"!important; width: 50px; padding: 5px;}
+
 .hide{display:none;}
+
+i{font-style: italic!important;}
+
+#checklist{width: 350px; padding-left: 0; position: relative;}
+
+#checklist ul{padding-left: 0;}
+
+#checklist li{text-align: left!important;}
+
+#checklist a{font-family: "Open Sans"!important; font-weight: 400!important; text-align: left!important;}
+
+.alpha_order{list-style: upper-alpha!important;}
+
+.num_order{list-style: decimal!important;}
+
+.multi_choice_table{border: 1px solid #000;}
+
+.multi_choice_table td{border-right: 1px solid #000; border-bottom: 1px solid #000; padding-right: 10px!important;}
+
+.multi_choice_table td p{text-align: left!important;}
+
+.third_cell_small td:nth-of-type(3){width: 25%!important;}
+
+#subscription_agreement_pg #header{ background: url('../images/sub_agreement_bg.jpg') no-repeat center; background-size: cover;}
+
+/* Hidden Sections */
+
+#top_sheet_section,
+#subscription_instructions,
+#subscription_agreement_for_shares,
+#appendix_a, #appendix_b,
+#representative_subscriber_only,
+#bvi_investor_notice_acknowledgement,
+#appendix_c, #appendix_d,
+#appendix_e, #appendix_f,
+#appendix_g, #appendix_h,
+#appendix_i, #appendix_j,
+#appendix_k, #additional_subscription_form,
+#request_for_redemption, #privacy_notice,
+#signature_page{ 
+	display: none;
+	position: absolute;
+	top: 25px;
+	background-color: #fff;
+	box-shadow: 0px 0px 8px #000;
+	padding: 10px;
+}
+
+.popup_close_btn{float: right;}
+
+/* Font Awesome */
+
+.fa-check-circle{color: green!important; position: absolute; right: 0;}
+.fa-times-circle{color: red!important; position: absolute; right: 0;}
 
 @media print{		
 	#subscription_agreement_pg div.wrapper{

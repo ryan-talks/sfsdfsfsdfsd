@@ -1,5 +1,5 @@
 {include file="components/header_common.html"}
-<body id="{$pageID}_pg"{if stristr($label, "_hide") === false } class="labeled"{/if}>{include file="components/updatecontent_switch_v2a.html"}
+<body id="{if $pageID == "sub_instructions"}subscription_agreement{else}{$pageID}{/if}_pg"{if stristr($label, "_hide") === false } class="labeled"{/if}>{include file="components/updatecontent_switch_v2a.html"}
 <div id="header"> 
 	<a href="./"><img id="logo" src="base/common/images/logo.png" alt="Venchuer"></a>
     {include file="components/main_navigation.html" group_id=1 position="main_nav"}
